@@ -25,6 +25,7 @@
     "eslint-plugin-react": "3.13.1",
     "http-server": "~0.8.5",
     "react-transform-hmr": "1.0.1",
+    "uglifyjs": "~2.4.10",
     "watchify": "~3.7.0"
   }
 }
