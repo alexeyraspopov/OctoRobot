@@ -5,6 +5,12 @@
   "author": "Alexey Raspopov",
   "repository": "alexeyraspopov/octorobot",
   "license": "MIT",
+  "dependencies": {
+    "history": "~1.17.0",
+    "react": "~0.14.6",
+    "react-dom": "~0.14.6",
+    "react-router": "~1.0.3"
+  },
   "devDependencies": {
     "babel": "~5.8.34",
     "babel-eslint": "~4.1.6",
@@ -20,11 +26,5 @@
     "http-server": "~0.8.5",
     "react-transform-hmr": "~1.0.1",
     "watchify": "~3.7.0"
-  },
-  "dependencies": {
-    "history": "~1.17.0",
-    "react": "~0.14.6",
-    "react-dom": "~0.14.6",
-    "react-router": "~1.0.3"
   }
 }
