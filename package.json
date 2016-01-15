@@ -1,0 +1,25 @@
+{
+  "name": "OctoRobot",
+  "version": "0.0.1",
+  "description": "Small application for making predictions online",
+  "author": "Alexey Raspopov",
+  "repository": "alexeyraspopov/octorobot",
+  "license": "MIT",
+  "devDependencies": {
+    "babel": "~5.8.34",
+    "babel-plugin-react-transform": "~1.1.1",
+    "babel-runtime": "~5.8.34",
+    "babelify": "~6.4.0",
+    "browserify-hmr": "~0.3.1",
+    "envify": "~3.4.0",
+    "http-server": "~0.8.5",
+    "react-transform-hmr": "~1.0.1",
+    "watchify": "~3.7.0"
+  },
+  "dependencies": {
+    "history": "~1.17.0",
+    "react": "~0.14.6",
+    "react-dom": "~0.14.6",
+    "react-router": "~1.0.3"
+  }
+}
