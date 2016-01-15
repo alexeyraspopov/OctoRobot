@@ -5,7 +5,6 @@ export NODE_PATH:=node_modules:.
 
 start: export NODE_ENV=development
 start: clean
-	mkdir dist
 	exec http-server . -p 3000 &
 	exec browserify -r react -r react-dom -o dist/vendor.js
 	exec watchify -e index.web.js \
@@ -17,6 +16,7 @@ start: clean
 
 clean:
 	rm -rf dist
+	mkdir dist
 
 lint:
 	exec eslint -c .eslintrc ./
