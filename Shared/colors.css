@@ -1,7 +1,19 @@
 :root{
-	--primary-color: #a41646;
-	--secondary-color: #c81b55;
-	--primary-text-color: #5d6265;
-	--secondary-text-color: #cccccc;
-	--elements-color: #e5e5e5;
+	--primary-100: #C5CAE9;
+	--primary-500: #3f51b5;
+	--primary-700: #303F9F;
+
+	--accent-A100: #FF80AB;
+	--accent-A200: #ff4081;
+	--accent-A400: #C51162;
+
+	--dark-primary-text: rgba(0, 0, 0, .87);
+	--dark-secondary-text: rgba(0, 0, 0, .54);
+	--dark-hint-text: rgba(0, 0, 0, .38);
+
+	--light-primary-text: rgba(0, 0, 0, 1);
+	--light-secondary-text: rgba(0, 0, 0, .7);
+	--light-hint-text: rgba(0, 0, 0, .3);
+
+	--dividers: rgba(0, 0, 0, .12);
 }
