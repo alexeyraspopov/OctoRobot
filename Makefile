@@ -5,13 +5,12 @@ export NODE_PATH:=node_modules:.
 
 EXTERNAL=-x react -x react-dom
 CSS_MODULES=--extension=.css -p [ css-modulesify -o dist/styles.css \
-			--use postcss-custom-properties \
-			--use autoprefixer \
-			--use postcss-import --postcss-import.path . ]
+			--after autoprefixer \
+			--after postcss-import --postcss-import.path . \
+			--after postcss-custom-properties ]
 
 start: export NODE_ENV=development
 start: clean
-	exec livestyle -r . -p 3000 &
 	exec browserify -r react -r react-dom -o dist/vendor.js
 	exec watchify -e index.web.js \
 		$(EXTERNAL) \
@@ -19,7 +18,8 @@ start: clean
 		-t [ babelify --sourceMapRelative . ] \
 		-p browserify-hmr \
 		-g envify \
-		-o dist/bundle.js -dv
+		-o dist/bundle.js -dv &
+	exec livestyle -r . -p 3000
 
 bundle: export NODE_ENV=production
 bundle: clean
