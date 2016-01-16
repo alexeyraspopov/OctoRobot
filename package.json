@@ -12,6 +12,7 @@
     "react-router": "~1.0.3"
   },
   "devDependencies": {
+    "autoprefixer": "~6.3.1",
     "babel": "5.8.34",
     "babel-eslint": "4.1.6",
     "babel-plugin-react-transform": "1.1.1",
@@ -20,12 +21,15 @@
     "browserify": "~13.0.0",
     "browserify-hmr": "0.3.1",
     "css-modulesify": "~0.16.1",
+    "cssnano": "~3.4.0",
+    "cssnano-cli": "~1.0.2",
     "envify": "~3.4.0",
     "eslint": "1.10.3",
     "eslint-config-airbnb": "2.1.1",
     "eslint-plugin-react": "3.13.1",
     "http-server": "~0.8.5",
     "livestyle": "~2.0.2",
+    "postcss-custom-properties": "~5.0.0",
     "react-transform-hmr": "1.0.1",
     "uglifyjs": "~2.4.10",
     "watchify": "~3.7.0"
