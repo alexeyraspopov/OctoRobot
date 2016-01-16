@@ -23,12 +23,12 @@ start: clean
 bundle: export NODE_ENV=production
 bundle: clean
 	exec browserify -r react -r react-dom \
-		-g envify | exec uglifyjs --compress > dist/vendor.js
+		-g envify | exec uglifyjs --compress --screw-ie8 --mangle > dist/vendor.js
 	exec browserify -e index.web.js \
 		$(EXTERNAL) \
 		$(CSS_MODULES) \
 		-t babelify \
-		-g envify | exec uglifyjs --compress > dist/bundle.js
+		-g envify | exec uglifyjs --compress --screw-ie8 --mangle > dist/bundle.js
 	exec cssnano dist/styles.css dist/styles.css
 
 clean:
