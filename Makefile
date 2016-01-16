@@ -4,9 +4,10 @@ export PATH:=$(shell pwd)/node_modules/.bin:$(PATH)
 export NODE_PATH:=node_modules:.
 
 EXTERNAL=-x react -x react-dom
-CSS_MODULES=--extension=.css -p [ css-modulesify -o dist/styles.css \
-			--after autoprefixer \
-			--after postcss-custom-properties ]
+CSS_MODULES=--extension=.css -p [ css-modulesify  \
+			--use postcss-custom-properties \
+			--use autoprefixer \
+			--use postcss-import --postcss-import.path . -o dist/styles.css]
 
 start: export NODE_ENV=development
 start: clean

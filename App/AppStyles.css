@@ -1,4 +1,7 @@
+@import "Shared/colors.css";
+
 .header{
 	font-family: sans-serif;
 	font-size: 50px;
+	color: var(--primary-text-color);
 }
