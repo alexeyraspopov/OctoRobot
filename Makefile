@@ -5,11 +5,13 @@ export NODE_PATH:=node_modules:.
 
 start: export NODE_ENV=development
 start: clean
-	exec http-server . -p 3000 &
+	exec livestyle -r . -p 3000 &
 	exec browserify -r react -r react-dom -o dist/vendor.js
 	exec watchify -e index.web.js \
 		-x react -x react-dom \
 		-t [ babelify --sourceMapRelative . ] \
+		--extension=.css \
+		-p [ css-modulesify -o dist/styles.css ] \
 		-p browserify-hmr \
 		-g envify \
 		-o dist/bundle.js -dv

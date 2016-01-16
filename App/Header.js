@@ -1,5 +1,5 @@
 import React from 'react';
 
-export default function Header() {
-	return <h1>Hello there!!</h1>;
+export default function Header({className}) {
+	return <h1 className={className}>Hello there!</h1>;
 }
