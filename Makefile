@@ -1,4 +1,4 @@
-.PHONY: start bundle clean lint
+.PHONY: start bundle clean lint test
 
 export PATH:=$(shell pwd)/node_modules/.bin:$(PATH)
 export NODE_PATH:=node_modules:.
@@ -38,3 +38,6 @@ clean:
 
 lint:
 	exec eslint -c .eslintrc ./
+
+test: lint
+	mocha --compilers js:babel/register **/__tests__/*.js
