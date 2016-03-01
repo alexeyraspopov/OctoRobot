@@ -7,14 +7,15 @@ help:
 install: ## Install all dependencies
 	@npm install
 
-start: nodemon.pid ## Start dev env
+start: client-app.pid ## Start dev env
 
-stop: nodemon.pid ## Stop dev env
 	@kill `cat $<` && rm $<
+stop: client-app.pid ## Stop dev env
 	@echo "The dev server has been stopped"
 
-nodemon.pid:
-	@exec nodemon & echo "$$!" > nodemon.pid
+client-app.pid:
+	@exec babel-node ClientApp/index.node.dev.js & echo "$$!" > client-app.pid
+	@echo "The dev server has been started"
 
 test: ## Run all tests
 	exec stylelint
