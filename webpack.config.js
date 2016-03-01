@@ -1,4 +1,3 @@
-export const development = {};
 export const testing = {};
 export const production = {};
 import Path from 'path';
@@ -24,3 +23,18 @@ const define = new Webpack.DefinePlugin({
 const plugins = [
   define,
 ];
+
+export const development = {
+  entry,
+  resolve,
+  plugins,
+  output: {
+    path: devOutputPath,
+    filename,
+  },
+  module: {
+    loaders: [
+      { test: /js$/, loader: 'babel?cacheDirectory' },
+    ],
+  },
+};
