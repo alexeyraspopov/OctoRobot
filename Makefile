@@ -9,8 +9,8 @@ install: ## Install all dependencies
 
 start: client-app.pid ## Start dev env
 
-	@kill `cat $<` && rm $<
 stop: client-app.pid ## Stop dev env
+	@pkill -TERM -P `cat $<` && rm $<
 	@echo "The dev server has been stopped"
 
 client-app.pid:
