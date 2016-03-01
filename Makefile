@@ -1,43 +1,27 @@
-.PHONY: start bundle clean lint test
+export PATH:=$(shell npm bin):$(PATH)
+export NODE_ENV:=development
 
-export PATH:=$(shell pwd)/node_modules/.bin:$(PATH)
-export NODE_PATH:=node_modules:.
+help:
+	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
-EXTERNAL=-x react -x react-dom -x react-router
-CSS_MODULES=--extension=.css -p [ css-modulesify -o dist/styles.css \
-			--after autoprefixer \
-			--after postcss-import --postcss-import.path . \
-			--after postcss-custom-properties ]
+install: ## Install all dependencies
+	@npm install
 
-start: export NODE_ENV=development
-start: clean
-	exec browserify -r react -r react-dom -r react-router -o dist/vendor.js
-	exec watchify -e index.web.js \
-		$(EXTERNAL) \
-		$(CSS_MODULES) \
-		-t [ babelify --sourceMapRelative . ] \
-		-p browserify-hmr \
-		-g envify \
-		-o dist/bundle.js -dv &
-	exec livestyle -r . -p 3000
+start: nodemon.pid ## Start dev env
 
-bundle: export NODE_ENV=production
-bundle: clean
-	exec browserify -r react -r react-dom -r react-router \
-		-g envify | exec uglifyjs --compress --screw-ie8 --mangle > dist/vendor.js
-	exec browserify -e index.web.js \
-		$(EXTERNAL) \
-		$(CSS_MODULES) \
-		-t babelify \
-		-g envify | exec uglifyjs --compress --screw-ie8 --mangle > dist/bundle.js
-	exec cssnano dist/styles.css dist/styles.css
+stop: ## Stop dev env
+	@kill `cat $<` && rm $<
+	@echo "The dev server has been stopped"
 
-clean:
-	rm -rf dist
-	mkdir dist
+nodemon.pid:
+	exec nodemon & echo "$$!" > nodemon.pid
 
-lint:
-	exec eslint -c .eslintrc ./
+test: ## Run all tests
+	exec eslint
+	exec stylelint
+	exec mocha
+	exec protractor
 
-test: lint
-	mocha --compilers js:babel/register **/__tests__/*.js
+build: export NODE_ENV=production
+build: ## Bundle everything
+	exec webpack
