@@ -1,5 +1,3 @@
-export const testing = {};
-export const production = {};
 import Path from 'path';
 import Webpack from 'webpack';
 
@@ -35,6 +33,33 @@ export const development = {
   module: {
     loaders: [
       { test: /js$/, loader: 'babel?cacheDirectory' },
+    ],
+  },
+};
+
+export const testing = {
+  resolve,
+  module: {
+    loaders: [
+      { test: /js$/, loader: 'babel' },
+    ],
+  },
+  plugins: [
+    define,
+  ],
+};
+
+export const production = {
+  entry,
+  resolve,
+  plugins,
+  output: {
+    path: prodOutputPath,
+    filename,
+  },
+  module: {
+    loaders: [
+      { test: /js$/, loader: 'babel' },
     ],
   },
 };
