@@ -46,7 +46,7 @@
       "react"
     ]
   },
-  "eslint": {
+  "eslintConfig": {
     "parser": "babel-eslint",
     "extends": "airbnb",
     "env": {
