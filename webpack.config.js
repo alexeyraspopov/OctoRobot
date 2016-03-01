@@ -6,3 +6,7 @@ import Path from 'path';
 const entry = {
   app: Path.resolve('ClientApp/index.web.js'),
 };
+
+const devOutputPath = Path.resolve('ClientApp/build');
+const prodOutputPath = Path.resolve('bundle');
+const filename = 'bundle.js';
