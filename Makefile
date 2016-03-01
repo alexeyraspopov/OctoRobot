@@ -1,5 +1,6 @@
 export PATH:=$(shell npm bin):$(PATH)
 export NODE_ENV:=development
+export NODE_PATH:=node_modules:ClientApp
 
 help:
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
@@ -26,3 +27,6 @@ test: ## Run all tests
 build: export NODE_ENV=production
 build: ## Bundle everything
 	exec webpack
+
+clean: ## Clean all temp files (*.pid)
+	@rm -rf *.pid
