@@ -10,3 +10,8 @@ const entry = {
 const devOutputPath = Path.resolve('ClientApp/build');
 const prodOutputPath = Path.resolve('bundle');
 const filename = 'bundle.js';
+
+const resolve = {
+  modulesDirectories: ['node_modules', 'ClientApp'],
+  extensions: ['', '.js', '.html', '.css'],
+};
