@@ -6,11 +6,11 @@
   "repository": "alexeyraspopov/octorobot",
   "license": "MIT",
   "dependencies": {
-    "history": "~1.17.0",
+    "express": "~4.13.4",
     "normalize.css": "~3.0.3",
-    "react": "~0.14.6",
-    "react-dom": "~0.14.6",
-    "react-router": "~1.0.3"
+    "react": "~0.14.7",
+    "react-dom": "~0.14.7",
+    "react-router": "~2.0.0"
   },
   "devDependencies": {
     "autoprefixer": "~6.3.1",
