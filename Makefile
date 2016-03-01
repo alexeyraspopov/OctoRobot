@@ -17,8 +17,8 @@ nodemon.pid:
 	@exec nodemon & echo "$$!" > nodemon.pid
 
 test: ## Run all tests
-	exec eslint
 	exec stylelint
+	exec eslint --ignore-path .gitignore **/*.js
 	exec nyc mocha
 	exec protractor
 
