@@ -9,17 +9,17 @@ install: ## Install all dependencies
 
 start: nodemon.pid ## Start dev env
 
-stop: ## Stop dev env
+stop: nodemon.pid ## Stop dev env
 	@kill `cat $<` && rm $<
 	@echo "The dev server has been stopped"
 
 nodemon.pid:
-	exec nodemon & echo "$$!" > nodemon.pid
+	@exec nodemon & echo "$$!" > nodemon.pid
 
 test: ## Run all tests
 	exec eslint
 	exec stylelint
-	exec mocha
+	exec nyc mocha
 	exec protractor
 
 build: export NODE_ENV=production
