@@ -1,2 +1,3 @@
 # OctoRobot
-Small application for making predictions online.
+
+Web application for making predictions online.
