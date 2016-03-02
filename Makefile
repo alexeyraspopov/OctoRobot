@@ -15,7 +15,7 @@ stop: client-app.pid ## Stop dev env
 	@echo "The dev server has been stopped"
 
 client-app.pid:
-	@exec babel-node ClientApp/index.node.dev.js & echo "$$!" > client-app.pid
+	@exec babel-node ClientApp/index.node.js & echo "$$!" > client-app.pid
 	@echo "The dev server has been started"
 
 test: ## Run all tests
