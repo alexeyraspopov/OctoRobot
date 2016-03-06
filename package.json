@@ -1,7 +1,7 @@
 {
   "name": "OctoRobot",
   "version": "0.0.1",
-  "description": "Small application for making predictions online",
+  "description": "Web application for making predictions online.",
   "author": "Alexey Raspopov",
   "repository": "alexeyraspopov/octorobot",
   "license": "MIT",
