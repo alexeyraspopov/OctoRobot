@@ -14,6 +14,9 @@ stop: client-app.pid ## Stop dev env
 	@pkill -TERM -P `cat $<` && rm $<
 	@echo "The dev server has been stopped"
 
+restart:
+	make stop && make start
+
 client-app.pid:
 	@exec babel-node ClientApp/index.node.js & echo "$$!" > client-app.pid
 	@echo "The dev server has been started"
